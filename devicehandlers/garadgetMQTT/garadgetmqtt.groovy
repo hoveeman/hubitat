@@ -23,7 +23,7 @@ metadata {
     preferences {
         input (name: "doorName", type: "text", title: "Garadget Door Name(Topic name)")
         input (name: "ipAddr", type: "text", title: "IP Address and port: ex: 192.168.0.1:1833")
-        input (name: "Sensor Scan Interval", type: "number", title: "default 1000")
+        input (name: "rdt", type: "number", title: "Sensor Scan Interval")
         // put configuration here
         input(name: "logLevel",title: "IDE logging level",multiple: false,required: true,type: "enum",options: getLogLevels(),submitOnChange : false,defaultValue : "1")
 
