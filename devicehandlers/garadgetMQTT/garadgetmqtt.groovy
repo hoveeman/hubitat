@@ -2,7 +2,7 @@ metadata {
     definition (name: "Garadget MQTT",
                 namespace: "jrfarrar",
                 author: "J.R. Farrar",
-               importUrl: "https://raw.githubusercontent.com/hoveeman/hubitat/master/devicehandlers/garadgetMQTT/garadgetmqtt.groovy") {
+               importUrl: "https://raw.githubusercontent.com/hoveeman/hubitat/Garadget/devicehandlers/garadgetMQTT/garadgetmqtt.groovy") {
         capability "Initialize"
         capability "Garage Door Control"
         capability "Contact Sensor"
