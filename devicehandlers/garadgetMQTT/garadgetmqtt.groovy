@@ -30,7 +30,7 @@ metadata {
         input (name: "srt", type: "number", title: "Reflection Threshold 1-80 Default 25")
         input (name: "nme", type: "text", title: "Device Name to be used in MQTT topic")
         //input (name: "mqtt", type: "text", title: "Bitmap 0x01 - cloud enabled, 0x02 - MQTT Enabled, 0x03 - Cloud and MQTT Enabled")
-        input (name: "mqtt", type: "enum", title: "Bitmap 0x01 - cloud enabled, 0x02 - MQTT Enabled, 0x03 - Cloud and MQTT Enabled", options: "0x01", "0x02", "0x03")
+        input (name: "mqtt", type: "enum", title: "Bitmap 0x01 - cloud enabled, 0x02 - MQTT Enabled, 0x03 - Cloud and MQTT Enabled", options: [0:"0x01", 1:"0x02", 2:"0x03"])
         input (name: "mqip", type: "number", title: "MQTT Broker IP Address")
         input (name: "mqpt", type: "number", title: "MQTT Broker Port Number Default 1883")
         input (name: "mqus", type: "text", title: "MQTT User")
