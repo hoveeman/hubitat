@@ -24,6 +24,16 @@ metadata {
         input (name: "doorName", type: "text", title: "Garadget Door Name(Topic name)")
         input (name: "ipAddr", type: "text", title: "IP Address and port: ex: 192.168.0.1:1833")
         input (name: "rdt", type: "number", title: "Sensor Scan Interval")
+        input (name: "mtt", type: "number", title: "Door Moving Time in mS")
+        input (name: "rlt", type: "number", title: "Button Press time in mS")
+        input (name: "rlp", type: "number", title: "Delay Between Consecutive Button Presses in mS")
+        input (name: "srt", type: "number", title: "Reflection Threshold 1-80")
+        input (name: "nme", type: "text", title: "Device Name to be used in MQTT topic")
+        input (name: "mqtt", type: "text", title: "Bitmap 0x01 - cloud enabled, 0x02 - MQTT Enabled, 0x03 - Cloud and MQTT Enabled")
+        input (name: "mqip", type: "number", title: "MQTT Broker IP Address")
+        input (name: "mqpt", type: "number", title: "MQTT Broker Port Number (default 1883)")
+        input (name: "mqus", type: "text", title: "MQTT User")
+        input (name: "mqto", type: "number", title: "MQTT Timeout (keep alive) in seconds")
         // put configuration here
         input(name: "logLevel",title: "IDE logging level",multiple: false,required: true,type: "enum",options: getLogLevels(),submitOnChange : false,defaultValue : "1")
 
