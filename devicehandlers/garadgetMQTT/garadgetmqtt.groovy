@@ -1,15 +1,15 @@
 metadata {
-    definition (name: "Garadget MQTT", 
-                namespace: "jrfarrar", 
+    definition (name: "Garadget MQTT",
+                namespace: "jrfarrar",
                 author: "J.R. Farrar",
-               importUrl: "https://raw.githubusercontent.com/jrfarrar/hubitat/master/devicehandlers/garadgetMQTT/garadgetmqtt.groovy") {
+               importUrl: "https://raw.githubusercontent.com/hoveeman/hubitat/master/devicehandlers/garadgetMQTT/garadgetmqtt.groovy") {
         capability "Initialize"
         capability "Garage Door Control"
         capability "Contact Sensor"
         capability "Switch"
         capability "Refresh"
         capability "Illuminance Measurement"
-        
+
         attribute "status", "string"
         attribute "time", "string"
         attribute "sensor", "number"
@@ -23,9 +23,10 @@ metadata {
     preferences {
         input (name: "doorName", type: "text", title: "Garadget Door Name(Topic name)")
         input (name: "ipAddr", type: "text", title: "IP Address and port: ex: 192.168.0.1:1833")
+        input (name: "Sensor Scan Interval", type: "number", title: "default 1000")
         // put configuration here
         input(name: "logLevel",title: "IDE logging level",multiple: false,required: true,type: "enum",options: getLogLevels(),submitOnChange : false,defaultValue : "1")
-        
+
     }
 
 }
@@ -51,7 +52,7 @@ void parse(String description) {
     def message=interfaces.mqtt.parseMessage(description).payload
     jsonVal=parseJson(message)
 
-    
+
     debuglog "status: " + jsonVal.status
     debuglog "bright: " + jsonVal.bright
     debuglog "sensor: " + jsonVal.sensor
@@ -130,11 +131,11 @@ def on() {
 	open()
 }
 def off() {
-    debuglog "Sending off event to close door"  
+    debuglog "Sending off event to close door"
 	close()
 }
 def debuglog(statement)
-{   
+{
 	def logL = 0
     if (logLevel) logL = logLevel.toInteger()
     if (logL == 0) {return}//bail
@@ -144,7 +145,7 @@ def debuglog(statement)
 	}
 }
 def infolog(statement)
-{       
+{
 	def logL = 0
     if (logLevel) logL = logLevel.toInteger()
     if (logL == 0) {return}//bail
